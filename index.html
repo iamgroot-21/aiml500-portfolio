@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayush Man Simanggaida Shrestha — Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+/* Layout: single-page portfolio with nav-driven sections, editorial feel grounded in BI/data world */
+:root {
+  --bg: #FAFAF8;
+  --fg: #1a1a1a;
+  --fg-muted: #5c5c5c;
+  --accent: #2d5a7b;
+  --accent-light: #e8f0f6;
+  --surface: #ffffff;
+  --border: #e2e2de;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141416;
+    --fg: #e8e8e4;
+    --fg-muted: #9a9a96;
+    --accent: #6aacda;
+    --accent-light: #1c2a36;
+    --surface: #1e1e22;
+    --border: #2e2e32;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141416;
+  --fg: #e8e8e4;
+  --fg-muted: #9a9a96;
+  --accent: #6aacda;
+  --accent-light: #1c2a36;
+  --surface: #1e1e22;
+  --border: #2e2e32;
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-block: 0;
+}
+
+/* Nav */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+nav .logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-right: auto;
+  letter-spacing: -0.02em;
+}
+nav a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover, nav a.active {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* Sections */
+section { display: none; }
+section.active { display: block; }
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  max-width: 720px;
+}
+.hero .eyebrow {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+.hero .tagline {
+  font-size: 1.15rem;
+  color: var(--fg-muted);
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+.hero .cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero .cta-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.hero .cta-row a:hover { transform: translateY(-1px); }
+.cta-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.cta-secondary {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* Artifact card on home */
+.artifact-preview {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 0 0 60px;
+  max-width: 720px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.artifact-preview:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+}
+.artifact-preview .badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--accent);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+.artifact-preview h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.artifact-preview p {
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+}
+.artifact-preview .meta {
+  margin-top: 16px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+.artifact-preview .meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* About page */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 720px;
+  padding: 60px 0;
+}
+.about-grid h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+.about-grid p {
+  margin-bottom: 14px;
+  color: var(--fg);
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.skills-list span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+.contact-line {
+  font-size: 0.95rem;
+  color: var(--fg-muted);
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.contact-line strong { color: var(--fg); }
+
+/* Artifact detail page */
+.artifact-page { padding: 60px 0 80px; max-width: 800px; }
+.artifact-page h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-wrap: balance;
+}
+.artifact-page .subtitle {
+  color: var(--fg-muted);
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+.detail-section {
+  margin-bottom: 36px;
+}
+.detail-section h3 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.detail-section p, .detail-section li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.detail-section ul {
+  list-style: none;
+  padding: 0;
+}
+.detail-section ul li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.detail-section ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin: 30px 0;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+.tl-item.winter::before {
+  background: #c0392b;
+}
+.tl-year {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.tl-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 2px 0;
+}
+.tl-desc {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  line-height: 1.55;
+}
+
+/* Era labels */
+.era-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 30px;
+}
+.era-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: var(--accent-light);
+  color: var(--accent);
+}
+.era-tag.winter-tag {
+  background: #fdecea;
+  color: #c0392b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .era-tag.winter-tag {
+    background: #3a1c1c;
+    color: #e57373;
+  }
+}
+:root[data-theme="dark"] .era-tag.winter-tag {
+  background: #3a1c1c;
+  color: #e57373;
+}
+
+/* Value prop card */
+.vp-card {
+  background: var(--accent-light);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 28px;
+  margin: 24px 0;
+}
+.vp-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+.vp-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 50px 0 40px; }
+  .artifact-preview { padding: 20px; }
+  nav a { padding: 5px 10px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">AS</span>
+  <a href="#home" class="active" data-page="home">Home</a>
+  <a href="#about" data-page="about">About</a>
+  <a href="#artifact1" data-page="artifact1">Artifact 1</a>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="hero">
+    <div class="eyebrow">AIML-500 &middot; AI/ML Artifacts Portfolio</div>
+    <h1>Ayush Man Simanggaida Shrestha</h1>
+    <p class="tagline">Senior BI Developer bridging business intelligence and machine learning. I help organizations turn complex data into clear, actionable insight through Looker, semantic modeling, and applied AI.</p>
+    <div class="cta-row">
+      <a href="#about" class="cta-primary" data-page="about">About Me</a>
+      <a href="#artifact1" class="cta-secondary" data-page="artifact1">View Artifact 1 →</a>
+    </div>
+  </div>
+
+  <div class="artifact-preview" onclick="showPage('artifact1')">
+    <span class="badge">Artifact 1</span>
+    <h3>Evolution of AI and Machine Learning: 1950 to Today</h3>
+    <p>An interactive timeline tracing AI's key milestones, the two AI winters, and the rise of deep learning, cloud computing, and generative AI.</p>
+    <div class="meta">
+      <span>📊 Timeline</span>
+      <span>🛠 PowerPoint</span>
+      <span>📅 November 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <h2>About Me</h2>
+      <p>I am Ayush Man Simanggaida Shrestha, a Senior BI Developer and Looker consultant currently pursuing a Master of Science in AI and Data Analytics at Indiana Wesleyan University. My professional background centers on translating business questions into data models that teams can explore on their own, using tools such as Looker, LookML, and cloud data warehouses.</p>
+      <p>This portfolio showcases artifacts from AIML-500: Machine Learning Fundamentals. Each piece reflects my growing ability to apply AI and ML concepts alongside the analytical skills I use daily in my work. My target audience is hiring managers and technical leads in healthcare analytics, where I see the greatest opportunity to combine BI expertise with emerging AI capabilities.</p>
+
+      <h2 style="margin-top:40px">Personal Value Proposition</h2>
+      <p>As a Senior BI Developer with deep experience in Looker and semantic data modeling, I bring a practical, business-first approach to AI and machine learning. I help data teams move from raw queries to governed, self-service analytics, and I am now extending that same philosophy to machine learning workflows. Organizations that work with me get someone who understands both the modeling and the stakeholder conversation.</p>
+
+      <div>
+        <h3 style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-top:28px;margin-bottom:12px;">Core Skills</h3>
+        <div class="skills-list">
+          <span>Looker / LookML</span>
+          <span>Data Modeling</span>
+          <span>SQL</span>
+          <span>Cloud Data Warehouses</span>
+          <span>Python</span>
+          <span>Machine Learning</span>
+          <span>Generative AI</span>
+          <span>Dashboard Design</span>
+          <span>Stakeholder Communication</span>
+        </div>
+      </div>
+
+      <div class="contact-line">
+        <strong>Indiana Wesleyan University</strong><br>
+        MS in AI and Data Analytics &middot; AIML-500: Machine Learning Fundamentals<br>
+        Instructor: David McCullough &middot; Workshop 1, 3FA2026
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIFACT 1 -->
+<section id="artifact1">
+  <div class="artifact-page">
+    <h2>Evolution of AI and Machine Learning: 1950 to Today</h2>
+    <p class="subtitle">Key milestones, the two AI winters, and the rise of deep learning, cloud computing, and generative AI</p>
+
+    <div class="detail-section">
+      <h3>Title</h3>
+      <p>Evolution of AI and Machine Learning: 1950 to Today</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>Objective</h3>
+      <p>This timeline traces the major milestones in artificial intelligence and machine learning from Alan Turing's foundational 1950 paper through the 2024 Nobel Prizes awarded for AI-related research. By mapping these events chronologically, the artifact helps the audience understand how cycles of enthusiasm and disillusionment (the two AI winters) shaped the field, and how the convergence of algorithms, data, and compute after 2012 triggered the current era of generative AI.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>Eras of AI</h3>
+      <div class="era-row">
+        <span class="era-tag">Birth of AI 1950–1973</span>
+        <span class="era-tag winter-tag">Winter 1</span>
+        <span class="era-tag">Expert Systems 1980–1986</span>
+        <span class="era-tag winter-tag">Winter 2</span>
+        <span class="era-tag">ML, Data &amp; Cloud 1993–2011</span>
+        <span class="era-tag">Deep Learning &amp; Cloud 2012–2021</span>
+        <span class="era-tag">Generative AI 2022–</span>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <h3>Timeline</h3>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-year">1950</span><div class="tl-title">Turing Test</div><div class="tl-desc">Alan Turing proposes a test of machine intelligence, the first benchmark for "thinking" machines.</div></div>
+        <div class="tl-item"><span class="tl-year">1956</span><div class="tl-title">Dartmouth Workshop</div><div class="tl-desc">John McCarthy coins "artificial intelligence." AI becomes its own research field.</div></div>
+        <div class="tl-item"><span class="tl-year">1958</span><div class="tl-title">Perceptron</div><div class="tl-desc">Frank Rosenblatt demonstrates the perceptron, an early neural network that learns from examples.</div></div>
+        <div class="tl-item"><span class="tl-year">1966</span><div class="tl-title">ELIZA</div><div class="tl-desc">Weizenbaum's MIT chatbot shows how readily people respond to conversational machines.</div></div>
+        <div class="tl-item winter"><span class="tl-year">1973</span><div class="tl-title">First AI Winter Begins</div><div class="tl-desc">Perceptrons (1969) and the UK Lighthill Report criticize AI's progress. Governments cut funding.</div></div>
+        <div class="tl-item"><span class="tl-year">1980</span><div class="tl-title">Expert Systems Boom</div><div class="tl-desc">Rule-based systems like XCON reach industry at DEC and draw heavy corporate investment.</div></div>
+        <div class="tl-item"><span class="tl-year">1986</span><div class="tl-title">Backpropagation</div><div class="tl-desc">Rumelhart, Hinton, and Williams popularize a practical way to train multilayer neural networks.</div></div>
+        <div class="tl-item winter"><span class="tl-year">1987</span><div class="tl-title">Second AI Winter Begins</div><div class="tl-desc">The Lisp machine market collapses. Expert systems prove costly and brittle, and funding dries up.</div></div>
+        <div class="tl-item"><span class="tl-year">1997</span><div class="tl-title">Deep Blue</div><div class="tl-desc">IBM's Deep Blue beats chess champion Garry Kasparov, proving machines can win at complex problems.</div></div>
+        <div class="tl-item"><span class="tl-year">2006</span><div class="tl-title">Cloud Computing Arrives</div><div class="tl-desc">Amazon launches S3 and EC2, making large-scale computing rentable. Hinton revives deep learning.</div></div>
+        <div class="tl-item"><span class="tl-year">2007</span><div class="tl-title">NVIDIA CUDA</div><div class="tl-desc">NVIDIA lets GPUs run general computing, which later speeds up neural network training.</div></div>
+        <div class="tl-item"><span class="tl-year">2009</span><div class="tl-title">ImageNet</div><div class="tl-desc">Fei-Fei Li's team releases millions of labeled images, giving deep learning the data it needs.</div></div>
+        <div class="tl-item"><span class="tl-year">2011</span><div class="tl-title">Watson Wins Jeopardy!</div><div class="tl-desc">IBM Watson beats human champions, showing AI can handle open-ended language questions.</div></div>
+        <div class="tl-item"><span class="tl-year">2012</span><div class="tl-title">AlexNet</div><div class="tl-desc">Krizhevsky, Sutskever, and Hinton win ImageNet with a deep CNN on NVIDIA GPUs. The deep learning boom begins.</div></div>
+        <div class="tl-item"><span class="tl-year">2014</span><div class="tl-title">DeepMind and GANs</div><div class="tl-desc">Google acquires DeepMind. Ian Goodfellow introduces GANs, which generate realistic images.</div></div>
+        <div class="tl-item"><span class="tl-year">2015</span><div class="tl-title">OpenAI Founded</div><div class="tl-desc">OpenAI starts as a research lab aiming to keep advanced AI open and beneficial.</div></div>
+        <div class="tl-item"><span class="tl-year">2016</span><div class="tl-title">AlphaGo</div><div class="tl-desc">DeepMind's AlphaGo beats Go champion Lee Sedol, a game long thought too intuitive for machines.</div></div>
+        <div class="tl-item"><span class="tl-year">2017</span><div class="tl-title">Transformers</div><div class="tl-desc">Google's "Attention Is All You Need" introduces the architecture behind modern language models.</div></div>
+        <div class="tl-item"><span class="tl-year">2020</span><div class="tl-title">GPT-3</div><div class="tl-desc">OpenAI's 175-billion-parameter GPT-3 writes fluent text from short prompts.</div></div>
+        <div class="tl-item"><span class="tl-year">2022</span><div class="tl-title">ChatGPT</div><div class="tl-desc">ChatGPT launches Nov. 30 and reaches about 100 million users in roughly two months.</div></div>
+        <div class="tl-item"><span class="tl-year">2024</span><div class="tl-title">Nobel Prizes</div><div class="tl-desc">Hinton and Hopfield (Physics) and Hassabis, Jumper, and Baker (Chemistry) win Nobels for AI-related work.</div></div>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <h3>Analysis: The AI Winters</h3>
+      <p><strong>First winter (about 1974–1980).</strong> Early systems such as perceptrons hit hard limits, computers were too weak, and promises outran results. The UK and U.S. governments cut research funding and many labs shrank.</p>
+      <p style="margin-top:10px"><strong>Second winter (about 1987–1993).</strong> Expert systems were expensive to maintain and broke outside narrow cases, and the specialized Lisp machine market collapsed. Companies failed, funding fell again, and researchers avoided the "AI" label while neural networks and statistical methods kept advancing quietly.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>Analysis: Why Deep Learning Took Off After 2012</h3>
+      <p>Three things came together: algorithms (backpropagation, CNNs, transformers), data (the web and ImageNet), and compute (NVIDIA GPUs and cloud platforms such as AWS). Our World in Data shows training computation doubling about every six months since 2010. Google's PaLM (2022) used more than 5 million times the training compute of AlexNet (2012). Hardware mattered as much as theory: the transistor, the microprocessor, and the GPU made today's models possible.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>Process</h3>
+      <p>I researched AI milestones through three primary sources: a YouTube documentary by Putchuon covering the last 100 years of AI history, an IEEE Computer Society article on AI's evolution, and Max Roser's "Brief History of Artificial Intelligence" on Our World in Data. I synthesized these into a single chronological narrative, then designed the timeline layout in Microsoft PowerPoint to present the milestones visually with era groupings and analysis sections.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>Tools</h3>
+      <ul>
+        <li>Microsoft PowerPoint – timeline design and layout</li>
+        <li>Claude (Anthropic) – research assistance and milestone verification</li>
+        <li>YouTube, IEEE, Our World in Data – primary research sources</li>
+      </ul>
+    </div>
+
+    <div class="vp-card">
+      <h4>Artifact-Specific Value Proposition</h4>
+      <p>This timeline demonstrates my ability to synthesize complex technical history into a clear, audience-friendly visual narrative. For a hiring manager in healthcare analytics, it shows that I can take a broad, evolving topic, identify the patterns that matter (cycles of hype and correction, the convergence of data, compute, and algorithms), and present them in a format that supports strategic conversation rather than requiring technical background. This same skill, distilling complexity into clarity, is what I bring to every BI dashboard and data model I build.</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>References</h3>
+      <ul>
+        <li>IEEE Computer Society. (n.d.). <em>The evolution of AI: From foundations to future prospects.</em></li>
+        <li>Putchuon. (2024, May 30). <em>The entire history of artificial intelligence (Last 100 years)</em> [Video]. YouTube.</li>
+        <li>Roser, M. (2022, December 6). The brief history of artificial intelligence. <em>Our World in Data.</em></li>
+      </ul>
+    </div>
+
+    <div class="detail-section" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
+      <p style="font-size:0.82rem;color:var(--fg-muted)"><strong>AI Use Disclosure:</strong> Claude (Anthropic) was used to help research milestones and refine the timeline layout. The timeline was built in Microsoft PowerPoint.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Ayush Man Simanggaida Shrestha &middot; Indiana Wesleyan University &middot; AIML-500
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a[data-page]').forEach(a => a.classList.remove('active'));
+  const sec = document.getElementById(id);
+  if (sec) {
+    sec.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+  const link = document.querySelector(`nav a[data-page="${id}"]`);
+  if (link) link.classList.add('active');
+  location.hash = id;
+}
+
+// Handle nav clicks
+document.querySelectorAll('a[data-page]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    showPage(this.dataset.page);
+  });
+});
+
+// Handle hash on load
+function handleHash() {
+  const hash = location.hash.replace('#','');
+  if (hash && document.getElementById(hash)) {
+    showPage(hash);
+  } else {
+    showPage('home');
+  }
+}
+handleHash();
+window.addEventListener('hashchange', handleHash);
+</script>
+</body>
+</html>
