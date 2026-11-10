@@ -820,6 +820,22 @@ footer .footer-links a:hover { color: var(--accent); }
   .analysis-grid { grid-template-columns: 1fr; }
   .course-info { gap: 20px; }
 }
+
+/* ── Comparison table ── */
+.table-scroll { overflow-x: auto; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.compare-table th, .compare-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--fg); }
+.compare-table thead th { color: var(--accent); font-weight: 700; border-bottom: 2px solid var(--border); }
+.compare-table tbody th { color: var(--fg-muted); font-weight: 600; white-space: nowrap; }
+.compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: none; }
+@media (max-width: 640px) { .compare-table tbody th { white-space: normal; } .compare-table { min-width: 520px; } }
+
+/* ── Nav fit on small screens ── */
+nav a { white-space: nowrap; }
+@media (max-width: 640px) {
+  .nav-inner { gap: 2px; overflow-x: auto; }
+  nav a { padding: 6px 8px; font-size: 0.8rem; }
+}
 </style>
 </head>
 <body>
@@ -831,6 +847,7 @@ footer .footer-links a:hover { color: var(--accent); }
     <a href="#home" class="active" data-page="home">Home</a>
     <a href="#about" data-page="about">About</a>
     <a href="#artifact1" data-page="artifact1">Artifact 1</a>
+    <a href="#artifact2" data-page="artifact2">Artifact 2</a>
   </div>
 </nav>
 
@@ -849,6 +866,7 @@ footer .footer-links a:hover { color: var(--accent); }
         <p class="hero-tagline reveal reveal-delay-2">Senior BI Developer bridging business intelligence and machine learning. I help organizations turn complex data into clear, actionable insight through Looker, semantic modeling, and applied AI.</p>
         <div class="hero-actions reveal reveal-delay-3">
           <a href="#artifact1" class="btn btn-primary" data-page="artifact1">View Artifact 1 →</a>
+          <a href="#artifact2" class="btn btn-secondary" data-page="artifact2">View Artifact 2 →</a>
           <a href="#about" class="btn btn-secondary" data-page="about">About Me</a>
         </div>
         <div class="stats-row reveal reveal-delay-3">
@@ -883,6 +901,22 @@ footer .footer-links a:hover { color: var(--accent); }
         <span>🛠 PowerPoint</span>
         <span>📅 November 2026</span>
         <span>📄 22 Milestones</span>
+      </div>
+    </div>
+
+    <div class="artifact-card reveal" style="margin-top:24px" onclick="showPage('artifact2')">
+      <div class="card-arrow">↗</div>
+      <div class="card-header">
+        <div class="card-icon">🧠</div>
+        <span class="card-badge">Artifact 2</span>
+      </div>
+      <h3>Machine Learning vs. Deep Learning: Choosing the Right Approach</h3>
+      <p>A technical report comparing two real-world cases, spam filtering and retinal image screening, and explaining why each problem calls for a different kind of model.</p>
+      <div class="card-meta">
+        <span>📝 Technical report</span>
+        <span>🛠 Word / PDF</span>
+        <span>📅 November 2026</span>
+        <span>📄 2 case studies</span>
       </div>
     </div>
   </div>
@@ -943,7 +977,7 @@ footer .footer-links a:hover { color: var(--accent); }
         </div>
         <div class="course-info-item">
           <span class="label">Term</span>
-          <span class="value">Workshop 1, 3FA2026</span>
+          <span class="value">Workshops 1 and 2, 3FA2026</span>
         </div>
       </div>
     </div>
@@ -1084,11 +1118,131 @@ footer .footer-links a:hover { color: var(--accent); }
   </div>
 </section>
 
+<!-- ══════ ARTIFACT 2 ══════ -->
+<section id="artifact2">
+  <div class="page-wrap">
+    <div class="artifact-page">
+
+      <div class="artifact-page-header reveal">
+        <a href="#home" class="back-link" data-page="home">← Back to Home</a>
+        <h2>Machine Learning vs. Deep Learning: Choosing the Right Approach</h2>
+        <p class="subtitle">Two real-world cases, spam filtering and retinal image screening, and why each calls for a different kind of model</p>
+        <div class="download-bar">
+          <a href="AIML500_2.3_ML_vs_DL_Report.pdf" class="btn btn-primary" target="_blank" rel="noopener">View report (PDF)</a>
+          <a href="AIML500_2.3_ML_vs_DL_Report.docx" class="btn btn-secondary" download>⬇ Download Word</a>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🧭</div>
+          <h3>Skill Demonstrated</h3>
+        </div>
+        <p>Technical judgment: matching a modeling approach to the data and the problem. Artifact 1 shows how I research and tell a story. This artifact shows how I decide which tool fits the job.</p>
+      </div>
+
+      <!-- Objective -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🎯</div>
+          <h3>Objective</h3>
+        </div>
+        <p>This report compares machine learning and deep learning through two real-world cases to show when each approach is the better choice. It answers a question analytics teams face in practice: before building a model, which kind of model fits the data and the problem?</p>
+      </div>
+
+      <!-- Two cases -->
+      <div class="analysis-grid reveal">
+        <div class="analysis-card">
+          <h4>✉️ Case 1: Spam detection (machine learning)</h4>
+          <p><strong>Real-world use.</strong> SpamAssassin, an open-source spam filter, uses a Bayesian classifier that learns from the words in emails marked as spam or not spam.</p>
+          <p style="margin-top:12px"><strong>Why it fits.</strong> The useful signals are easy to name, such as suspicious phrases, unusual sender domains, and odd formatting. The data is modest in size, models like naive Bayes train quickly and cheaply, and it is easy to see why a message was flagged.</p>
+          <p style="margin-top:12px"><strong>Why deep learning does not.</strong> It would need far more data and computing power, it would be hard to explain a flagged email, and it can overfit when the important features are already known.</p>
+        </div>
+        <div class="analysis-card">
+          <h4>👁 Case 2: Retinal screening (deep learning)</h4>
+          <p><strong>Real-world use.</strong> Screening retinal photographs for diabetic retinopathy, an eye disease linked to diabetes. An FDA-authorized system called IDx-DR uses this kind of technology to flag patients who need an eye exam.</p>
+          <p style="margin-top:12px"><strong>Why it fits.</strong> The input is raw pixels, and the signs of disease, such as tiny bleeds and subtle changes in blood vessels, are hard to write as rules. A convolutional neural network learns its own features in layers, from edges and textures up to shapes like lesions.</p>
+          <p style="margin-top:12px"><strong>Why traditional ML does not.</strong> Someone would have to design features by hand for every type of lesion, which is slow and would likely miss subtle patterns.</p>
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">⚖️</div>
+          <h3>Side by Side</h3>
+        </div>
+        <div class="table-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr><th></th><th>Spam detection (ML)</th><th>Retinal screening (DL)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Input data</th><td>Structured features such as words, length, and sender domain</td><td>Raw image pixels</td></tr>
+              <tr><th scope="row">Who chooses the features</th><td>People</td><td>The network learns them in layers</td></tr>
+              <tr><th scope="row">Data and compute</th><td>Modest data, fast and cheap to train</td><td>Large labeled image sets and substantial computing</td></tr>
+              <tr><th scope="row">Explainability</th><td>Easy to see which features drove the result</td><td>Harder to explain, so a clinician reviews the results</td></tr>
+              <tr><th scope="row">Best when</th><td>The important signals are easy to name</td><td>The patterns are too subtle to describe by hand</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">⚙️</div>
+          <h3>Process</h3>
+        </div>
+        <p>I started from the machine learning and deep learning descriptions in the Workshop 2.3 lesson and chose one example of each: the spam filter from the lesson and image recognition. For each one, I found a real-world application, then explained why the approach fits and why the other approach does not. I drafted the report with AI support, revised the wording, and formatted it in APA 7.</p>
+      </div>
+
+      <!-- Tools -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🛠</div>
+          <h3>Tools</h3>
+        </div>
+        <ul class="ref-list">
+          <li>Microsoft Word: report writing and APA 7 formatting</li>
+          <li>Claude (Anthropic): drafting and editing support</li>
+          <li>AIML-500 Workshop 2.3 lesson: source for the ML and DL examples</li>
+        </ul>
+      </div>
+
+      <!-- Value Proposition -->
+      <div class="vp-highlight reveal">
+        <h3>Artifact-Specific Value Proposition</h3>
+        <p>This report shows that I choose a modeling approach to fit the problem, and I do not default to the most complex one. For a healthcare analytics team, that means weighing accuracy against explainability, data needs, and cost, and being clear about where human review is still needed. It builds on my BI work, where the best model is often the simplest one that answers the business question.</p>
+      </div>
+
+      <!-- References -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">📚</div>
+          <h3>References</h3>
+        </div>
+        <ul class="ref-list">
+          <li>Indiana Wesleyan University. (n.d.). <em>Machine learning vs. deep learning</em> [Course lesson, Workshop 2.3]. AIML-500 Machine Learning Fundamentals. Brightspace.</li>
+        </ul>
+      </div>
+
+      <!-- AI Disclosure -->
+      <div class="detail-block reveal" style="border-left: 3px solid var(--fg-light);">
+        <p style="font-size:0.85rem;color:var(--fg-muted)"><strong>AI Use Disclosure:</strong> Claude (Anthropic) was used to help draft and edit this report. I reviewed the content and revised the wording.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-links">
     <a href="#home" data-page="home">Home</a>
     <a href="#about" data-page="about">About</a>
     <a href="#artifact1" data-page="artifact1">Artifact 1</a>
+    <a href="#artifact2" data-page="artifact2">Artifact 2</a>
   </div>
   &copy; 2026 Ayush Man Simanggaida Shrestha · Indiana Wesleyan University · AIML-500
 </footer>
