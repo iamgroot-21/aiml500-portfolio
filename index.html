@@ -833,9 +833,12 @@ footer .footer-links a:hover { color: var(--accent); }
 /* ── Nav fit on small screens ── */
 nav a { white-space: nowrap; }
 @media (max-width: 640px) {
-  .nav-inner { gap: 2px; overflow-x: auto; }
-  nav a { padding: 6px 8px; font-size: 0.8rem; }
+  .nav-inner { gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  nav a { padding: 6px 6px; font-size: 0.74rem; }
+  nav .logo { display: none; }
 }
+@media (max-width: 380px) { nav a { padding: 6px 4px; } }
 </style>
 </head>
 <body>
@@ -848,6 +851,7 @@ nav a { white-space: nowrap; }
     <a href="#about" data-page="about">About</a>
     <a href="#artifact1" data-page="artifact1">Artifact 1</a>
     <a href="#artifact2" data-page="artifact2">Artifact 2</a>
+    <a href="#artifact3" data-page="artifact3">Artifact 3</a>
   </div>
 </nav>
 
@@ -867,6 +871,7 @@ nav a { white-space: nowrap; }
         <div class="hero-actions reveal reveal-delay-3">
           <a href="#artifact1" class="btn btn-primary" data-page="artifact1">View Artifact 1 →</a>
           <a href="#artifact2" class="btn btn-secondary" data-page="artifact2">View Artifact 2 →</a>
+          <a href="#artifact3" class="btn btn-secondary" data-page="artifact3">View Artifact 3 →</a>
           <a href="#about" class="btn btn-secondary" data-page="about">About Me</a>
         </div>
         <div class="stats-row reveal reveal-delay-3">
@@ -917,6 +922,22 @@ nav a { white-space: nowrap; }
         <span>🛠 Word / PDF</span>
         <span>📅 November 2026</span>
         <span>📄 2 case studies</span>
+      </div>
+    </div>
+
+    <div class="artifact-card reveal" style="margin-top:24px" onclick="showPage('artifact3')">
+      <div class="card-arrow">↗</div>
+      <div class="card-header">
+        <div class="card-icon">💬</div>
+        <span class="card-badge">Artifact 3</span>
+      </div>
+      <h3>Neural Networks in Plain Language: Explaining AI to a Non-Technical Audience</h3>
+      <p>A one-page guide that explains how neural networks work using an everyday analogy and a layer diagram, plus the prompt revisions that turned a textbook-style AI answer into a clear one.</p>
+      <div class="card-meta">
+        <span>📝 One-page guide</span>
+        <span>🛠 Word / PDF</span>
+        <span>📅 November 2026</span>
+        <span>📄 1 diagram</span>
       </div>
     </div>
   </div>
@@ -1237,12 +1258,160 @@ nav a { white-space: nowrap; }
   </div>
 </section>
 
+<section id="artifact3">
+  <div class="page-wrap">
+    <div class="artifact-page">
+
+      <div class="artifact-page-header reveal">
+        <a href="#home" class="back-link" data-page="home">← Back to Home</a>
+        <h2>Neural Networks in Plain Language: Explaining AI to a Non-Technical Audience</h2>
+        <p class="subtitle">A one-page guide for healthcare analytics colleagues, and the prompt revisions behind it</p>
+        <div class="download-bar">
+          <a href="AIML500_3.4_Neural_Networks_Plain_Language.pdf" class="btn btn-primary" target="_blank" rel="noopener">View guide (PDF)</a>
+          <a href="AIML500_3.4_Neural_Networks_Plain_Language.docx" class="btn btn-secondary" download>⬇ Download Word</a>
+        </div>
+      </div>
+
+      <!-- Skill -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🧭</div>
+          <h3>Skill Demonstrated</h3>
+        </div>
+        <p>Communication for learning: turning a technical idea into a clear explanation for a specific audience, and steering an AI tool toward a better result through prompt revision. Artifact 1 shows research and storytelling, and Artifact 2 shows technical judgment. This artifact shows that I can explain the technology to the people who rely on it.</p>
+      </div>
+
+      <!-- Objective -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🎯</div>
+          <h3>Objective</h3>
+        </div>
+        <p>Create the clearest simple explanation of how neural networks work for a reader with no machine learning background, using the communication and information-presentation strategies from Workshop 3. It started as a discussion post for classmates. For the portfolio, I rebuilt it for a different audience: non-technical colleagues and stakeholders in healthcare analytics.</p>
+      </div>
+
+      <!-- The explanation -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">📖</div>
+          <h3>The Explanation</h3>
+        </div>
+        <p><strong>In one sentence:</strong> A neural network is a program that learns to make good guesses by practicing on examples and correcting its own mistakes.</p>
+        <p style="margin-top:12px"><strong>An everyday picture.</strong> Think of a new hire learning to sort referrals by urgency. At first she guesses. A senior colleague says “close” or “way off,” and she adjusts what she pays attention to. After hundreds of examples, she gets good. A neural network learns the same way, with numbers instead of a mentor.</p>
+        <div style="margin:20px 0 8px;overflow-x:auto;-webkit-overflow-scrolling:touch"><svg viewBox="0 0 640 310" role="img" aria-label="Diagram of a small neural network with four layers: raw data, simple patterns, bigger ideas, and an answer. Lines between layers vary in thickness to show weights." style="width:100%;min-width:560px;height:auto;display:block;font-family:var(--font-body)"><line x1="70" y1="219" x2="230" y2="242" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="70" y1="219" x2="230" y2="196" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="70" y1="219" x2="230" y2="150" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="70" y1="219" x2="230" y2="104" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="70" y1="219" x2="230" y2="58" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="70" y1="173" x2="230" y2="242" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="70" y1="173" x2="230" y2="196" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="70" y1="173" x2="230" y2="150" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="70" y1="173" x2="230" y2="104" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="70" y1="173" x2="230" y2="58" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="70" y1="127" x2="230" y2="242" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="70" y1="127" x2="230" y2="196" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="70" y1="127" x2="230" y2="150" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="70" y1="127" x2="230" y2="104" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="70" y1="127" x2="230" y2="58" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="70" y1="81" x2="230" y2="242" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="70" y1="81" x2="230" y2="196" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="70" y1="81" x2="230" y2="150" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="70" y1="81" x2="230" y2="104" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="70" y1="81" x2="230" y2="58" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="230" y1="242" x2="410" y2="219" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="242" x2="410" y2="173" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="242" x2="410" y2="127" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="230" y1="242" x2="410" y2="81" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="230" y1="196" x2="410" y2="219" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="196" x2="410" y2="173" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="196" x2="410" y2="127" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="196" x2="410" y2="81" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="230" y1="150" x2="410" y2="219" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="150" x2="410" y2="173" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="230" y1="150" x2="410" y2="127" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="230" y1="150" x2="410" y2="81" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="230" y1="104" x2="410" y2="219" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="230" y1="104" x2="410" y2="173" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="230" y1="104" x2="410" y2="127" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="104" x2="410" y2="81" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="230" y1="58" x2="410" y2="219" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="58" x2="410" y2="173" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="0.5"/><line x1="230" y1="58" x2="410" y2="127" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="230" y1="58" x2="410" y2="81" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="410" y1="219" x2="570" y2="173" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="410" y1="219" x2="570" y2="127" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="410" y1="173" x2="570" y2="173" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="410" y1="173" x2="570" y2="127" stroke="var(--accent)" stroke-opacity="0.24" stroke-width="1.8"/><line x1="410" y1="127" x2="570" y2="173" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="410" y1="127" x2="570" y2="127" stroke="var(--accent)" stroke-opacity="0.32" stroke-width="2.8"/><line x1="410" y1="81" x2="570" y2="173" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><line x1="410" y1="81" x2="570" y2="127" stroke="var(--accent)" stroke-opacity="0.18" stroke-width="1"/><circle cx="70" cy="219" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="70" cy="173" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="70" cy="127" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="70" cy="81" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="230" cy="242" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="230" cy="196" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="230" cy="150" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="230" cy="104" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="230" cy="58" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="410" cy="219" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="410" cy="173" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="410" cy="127" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="410" cy="81" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="570" cy="173" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><circle cx="570" cy="127" r="11" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/><text x="70" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="var(--fg)">Raw data</text><text x="70" y="276" text-anchor="middle" font-size="12" fill="var(--fg-muted)">age, visits, notes</text><text x="230" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="var(--fg)">Simple patterns</text><text x="230" y="276" text-anchor="middle" font-size="12" fill="var(--fg-muted)">early layers</text><text x="410" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="var(--fg)">Bigger ideas</text><text x="410" y="276" text-anchor="middle" font-size="12" fill="var(--fg-muted)">later layers</text><text x="570" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="var(--fg)">Answer</text><text x="570" y="276" text-anchor="middle" font-size="12" fill="var(--fg-muted)">urgent or routine</text><text x="320.0" y="300" text-anchor="middle" font-size="12" font-style="italic" fill="var(--fg-muted)">Thicker lines mean higher weights: more trust in that input</text></svg></div>
+        <p style="font-size:0.85rem;color:var(--fg-muted)">Figure 1. A small neural network. Data enters on the left, passes through layers that find patterns, and an answer comes out on the right.</p>
+        <p style="margin-top:12px"><strong>1. Layers of neurons.</strong> The network is a stack of layers made of small units called neurons. The first layer takes in the raw data, the middle layers look for patterns, and the last layer gives an answer, such as “urgent” or “routine.” Early layers notice simple things, and later layers combine them into bigger ideas.</p>
+        <p style="margin-top:12px"><strong>2. Weights.</strong> Each neuron decides how much to trust each input, and that trust is stored as a number called a weight. Weights are the network’s memory. They are what gets learned.</p>
+        <p style="margin-top:12px"><strong>3. Learning from mistakes.</strong> The network makes a guess, measures how wrong it was, and nudges its weights to be a little less wrong. It repeats this thousands or millions of times until its guesses are reliable.</p>
+        <p style="margin-top:12px"><strong>Why it matters in healthcare analytics.</strong> Networks like this help flag high-risk patients and read medical images. Knowing the basic idea lets you ask better questions of the people who build them: what data did it learn from, how would we know if it were wrong, and who reviews its results before anyone acts on them?</p>
+      </div>
+
+      <!-- Audience customization -->
+      <div class="analysis-grid reveal">
+        <div class="analysis-card">
+          <h4>🎓 Original version: classmates</h4>
+          <p><strong>Audience.</strong> Classmates in a Workshop 3.4 discussion.</p>
+          <p style="margin-top:12px"><strong>Shape.</strong> The explanation, a description of how I used AI, a paragraph judging how well it communicates, a tool disclosure, and a closing question asking classmates for feedback.</p>
+        </div>
+        <div class="analysis-card">
+          <h4>🏥 Portfolio version: healthcare analytics</h4>
+          <p><strong>Audience.</strong> Non-technical colleagues, care managers, and hiring managers in healthcare analytics.</p>
+          <p style="margin-top:12px"><strong>What I changed.</strong> I added a layer diagram, which my own review of the original named as a gap. I turned the single check-yourself question into three practical questions to ask a data team. I moved the prompt notes onto a separate page and removed the discussion-post wording.</p>
+        </div>
+      </div>
+
+      <!-- Prompt comparison -->
+      <div class="analysis-grid reveal">
+        <div class="analysis-card">
+          <h4>① Prompt 1: the plain version</h4>
+          <p><em>“Explain how neural networks work in machine learning in a simple way.”</em></p>
+          <p style="margin-top:12px"><strong>Result.</strong> Accurate, but six short paragraphs in textbook style, with no analogy, no link to healthcare, and no question to check understanding. It also brought in backpropagation, which a newcomer does not need on a first pass.</p>
+        </div>
+        <div class="analysis-card">
+          <h4>② Prompt 2: the structured version</h4>
+          <p><em>“Explain neural networks so that a smart person with no ML background gets it. Start with a one-sentence version, then build up in three short pieces: layers of neurons, weights, and learning from mistakes. Use one everyday analogy, keep it under 250 words, say why it matters for someone working in healthcare analytics, and end with a question that checks understanding. Plain language, no jargon without explaining it.”</em></p>
+          <p style="margin-top:12px"><strong>Result.</strong> About 245 words, one analogy, three short pieces, a healthcare connection, and a closing question.</p>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">⚖️</div>
+          <h3>Which Lesson Strategy Each Change Applies</h3>
+        </div>
+        <div class="table-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr><th>Change to the prompt or the page</th><th>Strategy from the Workshop 3 lesson</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Asked for a one-sentence version first</td><td>Progressive disclosure</td></tr>
+              <tr><td>Split the idea into three short pieces</td><td>Chunking information</td></tr>
+              <tr><td>Asked for one everyday analogy</td><td>Storytelling and examples</td></tr>
+              <tr><td>Named the audience and the healthcare connection</td><td>Tailored communication; relevance and context</td></tr>
+              <tr><td>Ended with a question that checks understanding</td><td>Feedback and reflection; feedback loops</td></tr>
+              <tr><td>Added a layer diagram for the portfolio version</td><td>Visual aids; multimodal presentation</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">⚙️</div>
+          <h3>Process</h3>
+        </div>
+        <p>I started from the Workshop 3.4 lesson on communication strategies and information presentation. I ran a plain prompt first, saw that the answer was accurate but read like a textbook, and rewrote the prompt using the lesson’s strategies. I edited the wording of the result, then reviewed it for gaps. It skips how a network measures its error and adjusts its weights, and an analogy simplifies things. For the portfolio version, I added a diagram, rewrote the closing for a professional audience, and put the prompt notes in the guide’s second page.</p>
+      </div>
+
+      <!-- Tools -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🛠</div>
+          <h3>Tools</h3>
+        </div>
+        <ul class="ref-list">
+          <li>Claude (Anthropic): drafting the explanation from the two prompts</li>
+          <li>Python (matplotlib) and Microsoft Word: the layer diagram and the guide</li>
+          <li>AIML-500 Workshop 3.4 lesson: source for the communication strategies</li>
+        </ul>
+      </div>
+
+      <!-- Value Proposition -->
+      <div class="vp-highlight reveal">
+        <h3>Artifact-Specific Value Proposition</h3>
+        <p>Healthcare analytics teams need people who can explain how a model works to clinicians, care managers, and executives who will never read code. This artifact shows that I can explain a technical idea in plain language, adapt it to a specific audience, and push an AI tool toward a clearer answer instead of accepting the first one. In my BI work, the same habit helps stakeholders ask better questions about the data behind a dashboard or a model.</p>
+      </div>
+
+      <!-- References -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">📚</div>
+          <h3>References</h3>
+        </div>
+        <ul class="ref-list">
+          <li>Indiana Wesleyan University. (n.d.). <em>Communication strategies and information presentation</em> [Course lesson, Workshop 3.4]. AIML-500 Machine Learning Fundamentals. Brightspace.</li>
+        </ul>
+      </div>
+
+      <!-- AI Disclosure -->
+      <div class="detail-block reveal" style="border-left: 3px solid var(--fg-light);">
+        <p style="font-size:0.85rem;color:var(--fg-muted)"><strong>AI Use Disclosure:</strong> Claude (Anthropic) was used to help draft the explanation. I reviewed the content and revised the wording. The diagram was created for this portfolio version.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-links">
     <a href="#home" data-page="home">Home</a>
     <a href="#about" data-page="about">About</a>
     <a href="#artifact1" data-page="artifact1">Artifact 1</a>
     <a href="#artifact2" data-page="artifact2">Artifact 2</a>
+    <a href="#artifact3" data-page="artifact3">Artifact 3</a>
   </div>
   &copy; 2026 Ayush Man Simanggaida Shrestha · Indiana Wesleyan University · AIML-500
 </footer>
