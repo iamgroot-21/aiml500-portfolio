@@ -839,6 +839,11 @@ nav a { white-space: nowrap; }
   nav .logo { display: none; }
 }
 @media (max-width: 380px) { nav a { padding: 6px 4px; } }
+@media (max-width: 480px) {
+  nav .aw { display: none; }
+  nav a[data-page^="artifact"] .an::before { content: "Art. "; }
+}
+
 </style>
 </head>
 <body>
@@ -849,9 +854,10 @@ nav a { white-space: nowrap; }
     <span class="logo">AMSS</span>
     <a href="#home" class="active" data-page="home">Home</a>
     <a href="#about" data-page="about">About</a>
-    <a href="#artifact1" data-page="artifact1">Artifact 1</a>
-    <a href="#artifact2" data-page="artifact2">Artifact 2</a>
-    <a href="#artifact3" data-page="artifact3">Artifact 3</a>
+    <a href="#artifact1" data-page="artifact1"><span class="aw">Artifact </span><span class="an">1</span></a>
+    <a href="#artifact2" data-page="artifact2"><span class="aw">Artifact </span><span class="an">2</span></a>
+    <a href="#artifact3" data-page="artifact3"><span class="aw">Artifact </span><span class="an">3</span></a>
+    <a href="#artifact4" data-page="artifact4"><span class="aw">Artifact </span><span class="an">4</span></a>
   </div>
 </nav>
 
@@ -872,6 +878,7 @@ nav a { white-space: nowrap; }
           <a href="#artifact1" class="btn btn-primary" data-page="artifact1">View Artifact 1 →</a>
           <a href="#artifact2" class="btn btn-secondary" data-page="artifact2">View Artifact 2 →</a>
           <a href="#artifact3" class="btn btn-secondary" data-page="artifact3">View Artifact 3 →</a>
+          <a href="#artifact4" class="btn btn-secondary" data-page="artifact4">View Artifact 4 →</a>
           <a href="#about" class="btn btn-secondary" data-page="about">About Me</a>
         </div>
         <div class="stats-row reveal reveal-delay-3">
@@ -938,6 +945,22 @@ nav a { white-space: nowrap; }
         <span>🛠 Word / PDF</span>
         <span>📅 November 2026</span>
         <span>📄 1 diagram</span>
+      </div>
+    </div>
+
+    <div class="artifact-card reveal" style="margin-top:24px" onclick="showPage('artifact4')">
+      <div class="card-arrow">↗</div>
+      <div class="card-header">
+        <div class="card-icon">🛡</div>
+        <span class="card-badge">Artifact 4</span>
+      </div>
+      <h3>Three Data Challenges to Check Before You Trust a Model</h3>
+      <p>A two-page checklist for care managers, analysts, and hiring managers that turns three practice scenarios on messy data, bias, and sensitive data sharing into questions to ask a data team.</p>
+      <div class="card-meta">
+        <span>📝 Checklist</span>
+        <span>🛠 Word / PDF</span>
+        <span>📅 November 2026</span>
+        <span>📄 3 scenarios</span>
       </div>
     </div>
   </div>
@@ -1405,6 +1428,147 @@ nav a { white-space: nowrap; }
   </div>
 </section>
 
+
+<section id="artifact4">
+  <div class="page-wrap">
+    <div class="artifact-page">
+
+      <div class="artifact-page-header reveal">
+        <a href="#home" class="back-link" data-page="home">← Back to Home</a>
+        <h2>Three Data Challenges to Check Before You Trust a Model</h2>
+        <p class="subtitle">A checklist for healthcare analytics teams, built from the Workshop 4.3 Data Challenge Scenarios</p>
+        <div class="download-bar">
+          <a href="AIML500_4.5_Data_Challenges_Checklist.pdf" class="btn btn-primary" target="_blank" rel="noopener">View checklist (PDF)</a>
+          <a href="AIML500_4.5_Data_Challenges_Checklist.docx" class="btn btn-secondary" download>⬇ Download Word</a>
+          <a href="AIML500_4.3_Practice_Chat_Summary.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Original chat summary (PDF)</a>
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">👋</div>
+          <h3>Introduction</h3>
+        </div>
+        <p>Most problems with a model start before the model: in messy records, in labels that measure the wrong thing, or in data that was never meant to be shared. This artifact takes three practice scenarios from my machine learning course and rewrites them as a checklist that a non-technical reader can use. Artifact 1 covers the history of AI, Artifact 2 compares machine learning and deep learning, and Artifact 3 explains neural networks. This one covers the data underneath all of them.</p>
+      </div>
+
+      <!-- Description -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">📖</div>
+          <h3>Description</h3>
+        </div>
+        <p>The checklist is two pages. Each of the three scenarios has a short situation, four things to check, and one question to ask the data team. A closing table separates privacy, security, and governance, and a last section names what I am still working on. All scenarios were fictional, and no real patient or employee data was used.</p>
+      </div>
+
+      <div class="analysis-grid reveal">
+        <div class="analysis-card">
+          <h4>🧹 1. Messy data</h4>
+          <p><strong>Situation.</strong> A sentiment model for 800,000 public reviews with duplicates, bot spam, several languages, and labels partly taken from star ratings.</p>
+          <p style="margin-top:12px"><strong>Key ideas.</strong> Keep a raw copy and log every change. Group uncertain near-duplicates instead of deleting them, and keep related records on one side of the train and test split. Check whether the labels can be trusted.</p>
+        </div>
+        <div class="analysis-card">
+          <h4>⚖️ 2. Bias and a new setting</h4>
+          <p><strong>Situation.</strong> A résumé-screening model trained on ten years of one company's hiring decisions, planned for a new country at ten times the volume.</p>
+          <p style="margin-top:12px"><strong>Key ideas.</strong> A past hiring decision is not the same as job performance. Compare results by group, test equally qualified people side by side, run a pilot with human review and an appeal path, and keep monitoring.</p>
+        </div>
+        <div class="analysis-card">
+          <h4>🔐 3. Sensitive data sharing</h4>
+          <p><strong>Situation.</strong> Two hospitals want to improve a diagnostic model together without handing over raw patient records, and they code some conditions differently.</p>
+          <p style="margin-top:12px"><strong>Key ideas.</strong> Check whether the datasets are compatible first. Federated learning keeps records local but still needs secure aggregation, access controls, and governance. Test at each hospital separately.</p>
+        </div>
+      </div>
+
+      <!-- Objective -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🎯</div>
+          <h3>Objective</h3>
+        </div>
+        <p>Show that I can reason through common data challenges in machine learning, including cleaning, bias, and privacy, and then explain that reasoning to people who will never read code. The course objectives for this activity were to discuss approaches for data processing and cleaning and to explain the challenges of data sharing, privacy, and security.</p>
+      </div>
+
+      <!-- Audience -->
+      <div class="analysis-grid reveal">
+        <div class="analysis-card">
+          <h4>💬 Original version: AI practice chat</h4>
+          <p><strong>Audience.</strong> Me, working through the Data Challenge Scenarios Coach, and my instructor.</p>
+          <p style="margin-top:12px"><strong>Shape.</strong> A back-and-forth conversation in which I proposed an approach, gave reasons, and answered follow-up questions. It ended with an AI-written practice summary, which is linked above.</p>
+        </div>
+        <div class="analysis-card">
+          <h4>🏥 Portfolio version: healthcare analytics</h4>
+          <p><strong>Audience.</strong> Care managers, analysts, and hiring managers who work with models but do not build them.</p>
+          <p style="margin-top:12px"><strong>What I changed.</strong> I turned a long conversation into two pages, replaced technical terms with plain language, ended each scenario with one question a reader can ask, and added the privacy, security, and governance table because those three are easy to confuse.</p>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">⚙️</div>
+          <h3>Process</h3>
+        </div>
+        <p>I pasted the course prompt into an AI chat tool and worked through the three scenarios in order, giving a decision, a reason, and a tradeoff each time. A follow-up question on near-duplicates led me to refine my first idea: instead of removing similar reviews automatically, I would group uncertain pairs so that honest opinions are kept. The chat ended with a practice summary that named one area to keep developing, which was telling a harmful shortcut from a legitimate clinical difference when a rare group has little data. I then rebuilt the material as a checklist, added that point to the final section, and reviewed the wording so that each item can be read without a technical background.</p>
+      </div>
+
+      <!-- Tools -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🛠</div>
+          <h3>Tools and Technologies Used</h3>
+        </div>
+        <ul class="ref-list">
+          <li>An AI chat tool running the course's Data Challenge Scenarios Coach prompt</li>
+          <li>Claude (Anthropic): drafting and editing the checklist</li>
+          <li>Microsoft Word and PDF: the checklist and the chat summary</li>
+        </ul>
+      </div>
+
+      <!-- Value Proposition -->
+      <div class="vp-highlight reveal">
+        <h3>Value Proposition</h3>
+        <p>Healthcare analytics teams make decisions from data that is often messy, biased, or sensitive. This artifact shows that I can spot those problems early, ask plain questions that expose them, and explain the tradeoffs to people who rely on the results.</p>
+      </div>
+
+      <!-- Unique Value -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">⭐</div>
+          <h3>Unique Value</h3>
+        </div>
+        <p>I come to machine learning from more than ten years of business intelligence work, where a metric's definition, a data source, or a group breakdown can change what a report says. That background shapes how I read these scenarios: I look first at what a label or a field really measures, and who might be missing from the numbers.</p>
+      </div>
+
+      <!-- Relevance -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">🔗</div>
+          <h3>Relevance</h3>
+        </div>
+        <p>Healthcare organizations are adopting models for referrals, risk scoring, and imaging while handling sensitive patient records. The questions in this checklist apply to any of those projects, and they connect to my goal of moving from report building toward data engineering with a focus on AI, where clean, fair, and well-governed data is the foundation.</p>
+      </div>
+
+      <!-- References -->
+      <div class="detail-block reveal">
+        <div class="block-header">
+          <div class="block-icon">📚</div>
+          <h3>References</h3>
+        </div>
+        <ul class="ref-list">
+          <li>Indiana Wesleyan University. (n.d.). <em>Data challenge scenarios</em> [Course activity, Workshop 4.3]. AIML-500 Machine Learning Fundamentals. Brightspace.</li>
+        </ul>
+      </div>
+
+      <!-- AI Disclosure -->
+      <div class="detail-block reveal" style="border-left: 3px solid var(--fg-light);">
+        <p style="font-size:0.85rem;color:var(--fg-muted)"><strong>AI Use Disclosure:</strong> The practice conversation was an AI chat, and Claude (Anthropic) was used to help draft and edit the checklist. I reviewed the content and revised the wording. The practice summary linked above was written by the AI chat tool and is not an instructor grade.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-links">
     <a href="#home" data-page="home">Home</a>
@@ -1412,6 +1576,7 @@ nav a { white-space: nowrap; }
     <a href="#artifact1" data-page="artifact1">Artifact 1</a>
     <a href="#artifact2" data-page="artifact2">Artifact 2</a>
     <a href="#artifact3" data-page="artifact3">Artifact 3</a>
+    <a href="#artifact4" data-page="artifact4">Artifact 4</a>
   </div>
   &copy; 2026 Ayush Man Simanggaida Shrestha · Indiana Wesleyan University · AIML-500
 </footer>
